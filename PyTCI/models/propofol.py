@@ -198,8 +198,7 @@ class Eleveld(Propofol):
 
         def sigmoid(x, e50, y):
             """ sigmoid function from eleveld paper """
-            sig = (x ** y) / ((x ** y) + (e50 ** y))
-            return sig
+            return (x ** y) / ((x ** y) + (e50 ** y))
 
         def central(i):
             """ central function """

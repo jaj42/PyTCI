@@ -53,8 +53,7 @@ class Eleveld(Remifentanil):
 
         def sigmoid(x, e50, y):
             """ sigmoid function from eleveld paper """
-            sig = (x ** y) / ((x ** y) + (e50 ** y))
-            return sig
+            return (x ** y) / ((x ** y) + (e50 ** y))
 
         # constants from paper
         v1ref = 5.81
