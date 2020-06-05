@@ -184,7 +184,6 @@ class Three:
         list of infusion rates in mg per second over period defined by user (or 10 if default)"""
 
         old_conc = {"ox1": self.x1, "ox2": self.x2, "ox3": self.x3, "oxeo": self.xeo}
-        pump_instructions = []
         sections = round(time / period)
 
         # see how long we need to wait to allow ce to decrease
@@ -193,9 +192,7 @@ class Three:
             self.wait_time(1)
             wait_seconds += 1
 
-        for _ in range(round(wait_seconds / period)):
-            pump_instructions.append(0)
-
+        pump_instructions = [0 for _ in range(round(wait_seconds / period))]
         # reset the concentrations so we've not change the patient state
         self.reset_concs(old_conc)
 
